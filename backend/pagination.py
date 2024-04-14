@@ -3,6 +3,15 @@ import pandas as pd
 class Paginate:
     def sortedFilterDF(self, 
                        collection):
+        """
+        Retrieve data from the MongoDB collection and create a sorted DataFrame.
+
+        Args:
+            collection (pymongo.collection.Collection): MongoDB collection to retrieve data from.
+
+        Returns:
+            pandas.DataFrame: Sorted DataFrame containing the retrieved data.
+        """
         d = collection.find_one({},{'_id': 0})
         df = pd.DataFrame.from_dict(d, orient='index', columns=['Value', 'Count'])
         df.index.name = 'Index'
@@ -12,6 +21,17 @@ class Paginate:
                             df, 
                             start_index, 
                             end_index):
+        """
+        Create index ranges based on the given DataFrame and start/end index.
+
+        Args:
+            df (pandas.DataFrame): DataFrame containing data to create index ranges from.
+            start_index (int): Start index for creating the range.
+            end_index (int): End index for creating the range.
+
+        Returns:
+            dict: Dictionary containing index ranges.
+        """
         result_dict = {}
         cumulative_count = 0
         for index, row in df.iterrows():
