@@ -16,4 +16,6 @@ A few things to note:
 4) The logged-in user can use the app, however the file uploading schemas do not take into account which user, need to change the DB schema and config but haven't done yet due to time constraints
 
 5) Test cases are not yet completed due to time constraints
+   
+6) The DB is cleared for your testing purposes.
 
