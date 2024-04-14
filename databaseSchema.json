@@ -1,0 +1,79 @@
+{
+    "movies": {
+        "indexes": ["_id"],
+        "schema": {
+            "_id": {
+                "type": "Obj"
+            },
+            "show_id": {
+                "type": "int"
+            },
+            "type": {
+                "type": "str"
+            }
+            // ....
+        }
+    },
+    "movie_mapping": {
+        "indexes": ["_id"],
+        "schema": {
+            "_id": {
+                "type": "Obj"
+            },
+            "Duration": {
+                "type": "dict"
+            },
+            "Date_Added": {
+                "type": "dict"
+            },
+            "Release_Year": {
+                "type": "dict"
+            }
+        }
+    },
+    "dateAddedSorted": {
+        "indexes": ["_id"],
+        "schema": {
+            "_id": {
+                "type": "Obj"
+            },
+            "March 30, 2017": {
+                "type": "list"
+            },
+            "March 31, 2017": {
+                "type": "dict"
+            }
+            // ....
+        }
+    },
+    "releaseYearSorted": {
+        "indexes": ["_id"],
+        "schema": {
+            "_id": {
+                "type": "Obj"
+            },
+            "2017": {
+                "type": "list"
+            },
+            "2018": {
+                "type": "dict"
+            }
+            // .....
+        }
+    },
+    "durationSorted": {
+        "indexes": ["_id"],
+        "schema": {
+            "_id": {
+                "type": "Obj"
+            },
+            "1 Season": {
+                "type": "list"
+            },
+            "2 Season": {
+                "type": "dict"
+            }
+            // .....
+        }
+    }
+}
