@@ -1,0 +1,56 @@
+{% extends "logged_in.html" %}
+{% block title %}Upload CSV{% endblock %}
+
+{% block content %}
+<h1>Dashboard</h1>
+<h4>Upload CSV</h2>
+<form action='/uploadCSV' method="POST" enctype="multipart/form-data">
+  <input type="file" name="file" accept=".csv"><br><br>
+  <input id="uploadBtn" type="submit" value="Upload">
+</form>
+
+{% if message  %}
+    <div class="alert alert-secondary" role="alert">
+        <p>{{ message }}</p>
+    </div>
+{% endif %}
+
+<h4>Progress of Upload</h4>
+{% if progress  %}
+    <div class="alert alert-secondary" role="alert">
+        <p>Number of chunks processed: {{ progress }}</p>
+    </div>
+{% endif %}
+
+<h4>Search based on Date Added, Release Year and Duration </h4>
+<form action='/search' method="post">
+<div>
+      <label for="Sort">Sort Based On Column: </label>
+      <input name="Sort" id="Sort" placeholder="Sort">
+</div>
+<div>
+    <label for="Order">ASC: 1, DESC: -1 </label>
+    <input name="Order" id="Order" placeholder="Order">
+</div>
+<div>
+    <label for="Records">Records Per Page: </label>
+    <input name="Records" id="Records" placeholder="Records">
+</div>
+<div>
+  <label for="PageNumber">Page Number: </label>
+  <input name="PageNumber" id="PageNumber" placeholder="PageNumber">
+</div>
+
+<button type="submit">Search</button>
+</form>
+
+<h3>IMDB Movie List</h3>
+
+{% if pagination  %}
+    <div class="alert alert-secondary" role="alert">
+        <p>{{ pagination }}</p>
+    </div>
+{% endif %}
+
+
+{% endblock %}
